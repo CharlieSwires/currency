@@ -72,11 +72,11 @@ public class Currency extends JPanel{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     try {
-                        aud.setText(""+Math.round(100*Double.parseDouble(pounds.getText()) *
-                                Double.parseDouble(prop.getProperty("GBPtoAUD","1.0").toString())/100.0));
-                        usd.setText(""+Math.round(100*Double.parseDouble(pounds.getText()) *
+                        aud.setText(""+Math.round(100.0*Double.parseDouble(pounds.getText()) *
+                                Double.parseDouble(prop.getProperty("GBPtoAUD","1.0").toString()))/100.0);
+                        usd.setText(""+Math.round(100.0*Double.parseDouble(pounds.getText()) *
                                 Double.parseDouble(prop.getProperty("GBPtoUSD","1.0").toString()))/100.0);
-                        eur.setText(""+Math.round(100*Double.parseDouble(pounds.getText()) *
+                        eur.setText(""+Math.round(100.0*Double.parseDouble(pounds.getText()) *
                                 Double.parseDouble(prop.getProperty("GBPtoEUR","1.0").toString()))/100.0);
                     } catch (Exception e1) {
                         throw new RuntimeException("One or more of the doubles used were invalid:"+
