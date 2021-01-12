@@ -29,13 +29,13 @@ public class Currency extends JPanel{
 
     }
 
-    JLabel poundsLabel = new JLabel("Ammount in GBP:");
+    JLabel poundsLabel = new JLabel("Amount in GBP:");
     JTextField pounds = new JTextField("100.00",10);
-    JLabel AUDLabel = new JLabel("Ammount in AUD:");
+    JLabel AUDLabel = new JLabel("Amount in AUD:");
     JTextField aud = new JTextField("",10);
-    JLabel USDLabel = new JLabel("Ammount in USD:");
+    JLabel USDLabel = new JLabel("Amount in USD:");
     JTextField usd = new JTextField("",10);
-    JLabel EURLabel = new JLabel("Ammount in EUR:");
+    JLabel EURLabel = new JLabel("Amount in EUR:");
     JTextField eur = new JTextField("",10);
 
     JButton go = new JButton("Convert");
