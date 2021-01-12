@@ -56,8 +56,7 @@ public class Currency extends JPanel{
 		    try {
                 prop.load(stream);
             } catch (IOException e1) {
-                // TODO Auto-generated catch block
-                e1.printStackTrace();
+                throw new RuntimeException("Couldn't load app.properties file");
             }
 			jfrm.setSize(1000, 200);
 			jfrm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -73,12 +72,20 @@ public class Currency extends JPanel{
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
+				    try {
                     aud.setText(""+Math.round(100*Double.parseDouble(pounds.getText()) *
                             Double.parseDouble(prop.getProperty("GBPtoAUD","1.0").toString())/100.0));
                     usd.setText(""+Math.round(100*Double.parseDouble(pounds.getText()) *
                             Double.parseDouble(prop.getProperty("GBPtoUSD","1.0").toString()))/100.0);
                     eur.setText(""+Math.round(100*Double.parseDouble(pounds.getText()) *
                             Double.parseDouble(prop.getProperty("GBPtoEUR","1.0").toString()))/100.0);
+				    } catch (Exception e1) {
+				        throw new RuntimeException("One or more of the doubles used were invalid:"+
+				    "pounds="+pounds.getText()+
+				    " GBPtoAUD="+prop.getProperty("GBPtoAUD","1.0").toString()+
+				    " GBPtoUSD="+prop.getProperty("GBPtoUSD","1.0").toString()+
+				    " GBPtoEUR="+prop.getProperty("GBPtoEUR","1.0").toString());
+				    }
 				}
 			});
 			pe.add(AUDLabel);
